@@ -102,11 +102,26 @@ bundle install
 ```
 
 # How to run
-This is a simple runner to start. It uses the `input.md` and `simple_runner.rb` files at the root.
+The `cli_runner.rb` is a CLI runner to convert markdown to html. 
 
-From this directory run. You can modify the markdown by changing the contents of `input.md` 
+It requires a file path to a file of markdown as input and it will write an output.html file from the converted input.
+
+It can optionally print the converted html to stdout and it can optionally open the html file in Chrome.
+
+Here are the command line options (use `-h` to view)
 ```
-ruby simple_runner.rb
+Usage: cli_runner [options]
+    -f, --file_path=FILE_PATH        Provide the path to a markdown file to convert to html, defaults to 'input.md'
+    -o, --open_browser               Open the output.html in Chrome
+    -s, --silent                     Don't print the converted HTML to stdout
+```
+
+You can use the default `input.md` file or provide any other markdown file and pass the full path to the 
+file using the `-f` arg.
+
+
+```
+ruby cli_runner.rb -f /some/path/file.md
 ```
 
 # Running tests
