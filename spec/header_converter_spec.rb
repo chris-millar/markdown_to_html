@@ -38,5 +38,15 @@ RSpec.describe HeaderConverter do
       md = "## this is a header\nthis is not"
       expect(HeaderConverter.convert_headers(md)).to eq("<h2>this is a header</h2>\nthis is not")
     end
+
+    it "supports indented header starts between 1 and 3 spaces" do
+      (1..3).each do |size|
+        md = "#{' ' * size}# a header"
+        expect(HeaderConverter.convert_headers(md)).to eq("<h1>a header</h1>")
+      end
+
+      md = "    # a header"
+      expect(HeaderConverter.convert_headers(md)).to eq("    # a header")
+    end
   end
 end
