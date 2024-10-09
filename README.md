@@ -17,8 +17,14 @@ This is the supported subset of Markdown
 # Parsing rules / presumptions
 
 ## Links
-Will transform all markdown links from `[Some Link Name](https://google.com)` 
-to `<a href="https://google.com" >Some Link Name</a>`
+Will transform all markdown links from 
+```
+[Some Link Name](https://google.com)
+``` 
+to 
+```
+<a href="https://google.com">Some Link Name</a>
+```
 
 ### callouts
 #### Url protocol is optional and case-insensitive, but must be `http | https` if provided
@@ -27,10 +33,19 @@ So for example, the following will be converted: `http://google.com`, `https://g
 This will be converted `[link](dev.io)` but this will not `[link](a.i)`
 #### A link will not be converted to an anchor tag if either the `link name` or `link url` are blank (or invalid in link url's case)
 So for example, the following will not be converted: `[](google.com)`, `[link name]()`, `[link name](a.i)`
+#### A link title is not supported
+#### Reference links are not supported
 
 
 ## Headers
-Will transform all markdown headers from `# some header` to `<h1>some header</h1>`
+Will transform all markdown headers from 
+```
+# some header
+``` 
+to
+```
+<h1>some header</h1>
+```
 
 ### callouts
 #### Supports h1 - h6, via `#`, `##`, ... , `######`
