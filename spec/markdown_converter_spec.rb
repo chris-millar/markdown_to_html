@@ -4,31 +4,20 @@ RSpec.describe MarkdownConverter do
   describe "to_html" do
     it "provided example 1" do
       md = File.read("./spec/examples/example_one.md")
-      expect(MarkdownConverter.to_html(md)).to eq(
-'''<h1>Sample Document</h1>
-
-Hello!
-
-This is sample markdown for the <a href="https://www.mailchimp.com">Mailchimp</a> homework assignment.'''
-      )
+      html = File.read("./spec/expected_html/example_one.html")
+      expect(MarkdownConverter.to_html(md)).to eq(html)
     end
 
     it "provided example 2" do
       md = File.read("./spec/examples/example_two.md")
-      expect(MarkdownConverter.to_html(md)).to eq(
-        '''<h1>Header one</h1>
+      html = File.read("./spec/expected_html/example_two.html")
+      expect(MarkdownConverter.to_html(md)).to eq(html)
+    end
 
-Hello there
-
-How are you?
-What\'s going on?
-
-<h2>Another Header</h2>
-
-This is a paragraph <a href="http://google.com">with an inline link</a>. Neat, eh?
-
-<h2>This is a header <a href="http://yahoo.com">with a link</a></h2>'''
-      )
+    it "complex example" do
+      md = File.read("./spec/examples/complex.md")
+      html = File.read("./spec/expected_html/complex.html")
+      expect(MarkdownConverter.to_html(md)).to eq(html)
     end
   end
 end
