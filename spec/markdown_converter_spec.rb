@@ -5,7 +5,7 @@ RSpec.describe MarkdownConverter do
     it "provided example 1" do
       md = File.read("./spec/examples/example_one.md")
       expect(MarkdownConverter.to_html(md)).to eq(
-'''# Sample Document
+'''<h1>Sample Document</h1>
 
 Hello!
 
@@ -16,18 +16,18 @@ This is sample markdown for the <a href="https://www.mailchimp.com">Mailchimp</a
     it "provided example 2" do
       md = File.read("./spec/examples/example_two.md")
       expect(MarkdownConverter.to_html(md)).to eq(
-        '''# Header one
+        '''<h1>Header one</h1>
 
 Hello there
 
 How are you?
 What\'s going on?
 
-## Another Header
+<h2>Another Header</h2>
 
 This is a paragraph <a href="http://google.com">with an inline link</a>. Neat, eh?
 
-## This is a header <a href="http://yahoo.com">with a link</a>'''
+<h2>This is a header <a href="http://yahoo.com">with a link</a></h2>'''
       )
     end
   end
